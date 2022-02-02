@@ -167,14 +167,20 @@ class Gestures {
     // even though preventDefault IS called on mousemove. That's why we preventDefault mousedown.
     const isMousePointer = e.type === 'mousedown' || e.pointerType === 'mouse';
 
+    const { pswp } = this;
+
+    if (isMousePointer && (e.button === 1) && pswp.options.middleClickCloses) {
+      e.preventDefault();
+      pswp.close();
+      return;
+    }
+
     // Allow dragging only via left mouse button.
     // http://www.quirksmode.org/js/events_properties.html
     // https://developer.mozilla.org/en-US/docs/Web/API/event.button
     if (isMousePointer && e.button > 0) {
       return;
     }
-
-    const { pswp } = this;
 
     // if PhotoSwipe is opening or closing
     if (!pswp.opener.isOpen) {

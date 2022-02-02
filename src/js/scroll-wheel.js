@@ -47,6 +47,8 @@ class ScrollWheel {
           y: e.clientY
         });
       }
+    } else if (e.shiftKey && this.pswp.options.wheelToAdvance) {
+      this.pswp[(deltaY > 0) || (deltaX > 0) ? 'next' : 'prev']();
     } else {
       // pan
       if (currSlide.isPannable()) {

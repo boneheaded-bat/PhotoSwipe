@@ -136,6 +136,13 @@ import ContentLoader from './slide/loader.js';
  * Refer to click and tap actions page.
  *
  * @prop {number} preloaderDelay
+ * @prop {boolean} middleClickCloses
+ * Close the image if the middle mouse button is pressed.
+ *
+ * @prop {boolean} wheelToAdvance
+ * Use shift and the mouse scroll wheel to change image.
+ *
+ * @prop {number} preloaderDelay
  * Delay before the loading indicator will be displayed,
  * if image is loaded during it - the indicator will not be displayed at all. Can be zero.
  *
@@ -243,6 +250,8 @@ const defaultOptions = {
   bgClickAction: 'close',
   tapAction: 'toggle-controls',
   doubleTapAction: 'zoom',
+  middleClickCloses: false,
+  wheelToAdvance: false,
   indexIndicatorSep: ' / ',
   preloaderDelay: 2000,
   bgOpacity: 0.8,
